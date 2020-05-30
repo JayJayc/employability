@@ -8,7 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@n8tb1t/use-scroll-position": "^1.0.43",
+    "@zoomus/websdk": "^1.7.8",
+    "dotenv": "^8.2.0",
+    "firebase": "^7.14.5",
     "next": "9.4.2",
+    "pure-react-carousel": "^1.27.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   }

@@ -1,0 +1,28 @@
+.sliderContainer {
+    margin-bottom: 5vh;
+    height: 95vh;
+    background: black;
+}
+
+.slider ul {
+    margin: 0;
+    padding: 0;
+}
+.carousel {
+    z-index: -1;
+}
+.image {
+    object-fit: cover;
+    height: 95vh;
+}
+
+.slideVisible {
+    transition: opacity 2000ms;
+    height: 95vh;
+}
+.slideHidden {
+    opacity: 0.8;
+}
+.slideTransition {
+    transition-duration: 0ms;
+}

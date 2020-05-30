@@ -1,0 +1,54 @@
+.viewportContainer {
+    scroll-snap-type: y mandatory;
+    position: relative;
+    overflow-y: scroll;
+    height: 70vh;
+    margin-left: 7vw;
+    margin-right: 7vw;
+    margin-top: 7vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.viewportContainer::-webkit-scrollbar {
+    /* width: 0.5em;
+    height: 0.5em; */
+    display: none;
+}
+
+.viewportContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+.viewport {
+    scroll-snap-align: start;
+    height: 35vh;
+    padding: 20px;
+    margin-left: 50px;
+    overflow: auto;
+}
+.progress {
+    margin-top: 100px;
+    width: 100%;
+    margin-bottom: 100px;
+    position: absolute;
+}
+.progressBarStyle {
+    height: 5px;
+    background: #e91e63;
+}
+.progressContainerStyle {
+    top: 315px;
+    position: sticky;
+    background: #f8bbd0;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    height: 5px;
+    margin-left: -220px;
+    width: 500px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg); /*Webkit*/
+
+    -moz-transform: rotate(90deg); /*FireFox*/
+
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); /*IE*/
+    z-index: 99;
+}
