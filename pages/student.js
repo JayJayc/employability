@@ -1,6 +1,4 @@
-import Header from "../components/Layout/Header";
-import withAuth from "../src/helpers/withAuth";
-import WithLayout from "../components/Layout/MainLayout";
+import WithStudentLayout from "../components/Layout/StudentLayout";
 import styles from "./../styling/Student.module.css";
 import React, { useEffect, useState } from "react";
 
@@ -120,4 +118,4 @@ const Dashboard = (props) => {
         </div>
     );
 };
-export default withAuth(WithLayout(Dashboard));
+export default WithStudentLayout(Dashboard);

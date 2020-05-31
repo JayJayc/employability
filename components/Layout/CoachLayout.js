@@ -1,6 +1,7 @@
-import MainHeader from "./headers/MainHeader";
+import CoachHeader from "./headers/CoachHeader";
+import withAuth from "../../src/helpers/withAuth";
 
-const WithMainLayout = (Page, pageName) => {
+const WithCoachLayout = (Page, pageName) => {
     return () => (
         <div>
             <style jsx global>{`
@@ -10,10 +11,10 @@ const WithMainLayout = (Page, pageName) => {
                 }
             `}</style>
 
-            <MainHeader page={pageName} />
+            <CoachHeader page={pageName} />
             <Page />
         </div>
     );
 };
 
-export default WithMainLayout;
+export default withAuth(WithCoachLayout);

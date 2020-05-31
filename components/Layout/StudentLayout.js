@@ -1,6 +1,8 @@
-import MainHeader from "./headers/MainHeader";
+import StudentHeader from "./headers/StudentHeader";
+import withAuth from "../../src/helpers/withAuth";
 
-const WithMainLayout = (Page, pageName) => {
+const WithStudentLayout = (Page, pageName) => {
+    const PageWithAuth = withAuth(Page);
     return () => (
         <div>
             <style jsx global>{`
@@ -10,10 +12,10 @@ const WithMainLayout = (Page, pageName) => {
                 }
             `}</style>
 
-            <MainHeader page={pageName} />
-            <Page />
+            <StudentHeader page={pageName} />
+            <PageWithAuth />
         </div>
     );
 };
 
-export default WithMainLayout;
+export default WithStudentLayout;

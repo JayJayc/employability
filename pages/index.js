@@ -1,16 +1,13 @@
-import WithLayout from "../components/Layout/MainLayout";
-import { useRouter } from "next/router";
+import WithMainLayout from "../components/Layout/MainLayout";
 import Link from "next/link";
 import React, { useContext, useState } from "react";
 import { UserContext } from "../components/UserContext";
 import styles from "./../styling/Home.module.css";
-import Header from "./../components/Layout/Header";
+import Header from "../components/Layout/headers/MainHeader";
 import Carousel from "./../components/Home/Carousel";
 
 const Home = (props) => {
     const [state, setState] = useContext(UserContext);
-
-    const router = useRouter();
     return (
         <React.Fragment>
             <Carousel />
@@ -200,4 +197,4 @@ const Home = (props) => {
         </React.Fragment>
     );
 };
-export default WithLayout(Home, "home");
+export default WithMainLayout(Home, "home");
