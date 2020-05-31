@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "../components/Layout/Header";
-import withAuth from "../src/helpers/withAuth";
-import WithLayout from "../components/Layout/MainLayout";
+import WithStudentLayout from "../../components/Layout/WithStudentLayout";
 import dynamic from "next/dynamic";
 import styles from "./../styling/Meeting.module.css";
 
@@ -82,4 +80,4 @@ const Meeting = (props) => {
     );
 };
 
-export default withAuth(WithLayout(Meeting));
+export default WithStudentLayout(Meeting);

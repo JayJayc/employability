@@ -1,8 +1,8 @@
 import Link from "next/link";
-import styles from "./../../styling/Header.module.css";
-import Modal from "./LoginModal";
+import styles from "./../../../styling/Header.module.css";
+import Modal from "../LoginModal";
 import { useState, useContext } from "react";
-import { UserContext } from "../UserContext";
+import { UserContext } from "../../UserContext";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 const linkStyle = {

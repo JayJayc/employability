@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "../components/Layout/Header";
-import withAuth from "../src/helpers/withAuth";
-import WithLayout from "../components/Layout/MainLayout";
+import WithMainLayout from "../components/Layout/MainLayout";
 
 const Dashboard = (props) => {
     return (
@@ -39,4 +38,4 @@ const Dashboard = (props) => {
         </div>
     );
 };
-export default withAuth(WithLayout(Dashboard));
+export default WithMainLayout(Dashboard);
