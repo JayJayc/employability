@@ -3,7 +3,7 @@ import styles from "./../styling/Student.module.css";
 import React, { useEffect, useState } from "react";
 
 const Dashboard = (props) => {
-    const [scrolled, setScrolled] = useState("0px");
+    const [scrolled, setScrolled] = useState("");
 
     const scrollProgress = () => {
         const scrollPx = document.getElementById("viewportContainer").scrollTop;
@@ -24,14 +24,14 @@ const Dashboard = (props) => {
         width: scrolled,
     };
     return (
-        <div className={styles.pageColumn}>
-            <div className={styles.progressContainerStyle}>
-                <div
-                    className={styles.progressBarStyle}
-                    style={progressBarScrolled}
-                />
-            </div>
-            <div id="viewportContainer" className={styles.viewportContainer}>
+        <div>
+            <div id={"viewportContainer"} className={styles.viewportContainer}>
+                <div className={styles.progressContainerStyle}>
+                    <div
+                        className={styles.progressBarStyle}
+                        style={progressBarScrolled}
+                    />
+                </div>
                 <div className={styles.viewport}>
                     <h1>Discovery</h1>
                     <h2>Find your passion</h2>
@@ -108,11 +108,13 @@ const Dashboard = (props) => {
                     </p>
                 </div>
             </div>
-            <style jsx>{`
-                body {
-                    scroll-snap-type: y proximity;
-                }
-            `}</style>
+            <div className={styles.profile}>
+                <h1>Profile</h1>
+                <p>You can't go into this page if you are not authenticated.</p>
+                <p>You can't go into this page if you are not authenticated.</p>
+                <p>You can't go into this page if you are not authenticated.</p>
+                <p>You can't go into this page if you are not authenticated.</p>
+            </div>
         </div>
     );
 };

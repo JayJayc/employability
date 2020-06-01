@@ -104,11 +104,8 @@ const Header = (props) => {
                 <header className={[styles.header, styles.sticky].join(" ")}>
                     <div className={styles.navBar}>
                         <ul className={styles.links}>
-                            <Link href="/">
-                                <img className={styles.logo} src="/logo1.jpg" />
-                            </Link>
                             <li>
-                                <Link href="/student">
+                                <Link href="/">
                                     <a>Home</a>
                                 </Link>
                             </li>
@@ -139,12 +136,6 @@ const Header = (props) => {
                             <li onClick={() => setMenuClicked(!menuClicked)}>
                                 Contact Us
                             </li>
-                            <div className={styles.avatarWrapper}>
-                                <img
-                                    className={styles.avatar}
-                                    src="/avatar.png"
-                                />
-                            </div>
                         </ul>
                     </div>
                 </header>
