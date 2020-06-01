@@ -1,4 +1,4 @@
-import WithStudentLayout from "../components/Layout/StudentLayout";
+import WithStudentLayout from "./../components/Layout/StudentLayout";
 import styles from "./../styling/Student.module.css";
 import React, { useEffect, useState } from "react";
 

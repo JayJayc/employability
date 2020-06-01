@@ -1,5 +1,5 @@
 import React from "react";
-import WithStudentLayout from "../../../components/Layout/WithStudentLayout";
+import WithStudentLayout from "./../../../components/Layout/StudentLayout";
 
 const Dashboard = (props) => {
     return (

@@ -1,6 +1,5 @@
 import React from "react";
-import Header from "../components/Layout/Header";
-import WithMainLayout from "../components/Layout/MainLayout";
+import WithMainLayout from "./../components/Layout/MainLayout";
 
 const Dashboard = (props) => {
     return (

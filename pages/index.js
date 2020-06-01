@@ -1,9 +1,7 @@
-import WithMainLayout from "../components/Layout/MainLayout";
-import Link from "next/link";
+import WithMainLayout from "./../components/Layout/MainLayout";
 import React, { useContext, useState } from "react";
-import { UserContext } from "../components/UserContext";
+import { UserContext } from "./../components/UserContext";
 import styles from "./../styling/Home.module.css";
-import Header from "../components/Layout/headers/MainHeader";
 import Carousel from "./../components/Home/Carousel";
 
 const Home = (props) => {
