@@ -1,7 +1,7 @@
 import React from "react";
-import WithStudentLayout from "../../components/Layout/WithStudentLayout";
+import WithStudentLayout from "./../../components/Layout/StudentLayout";
 import dynamic from "next/dynamic";
-import styles from "./../styling/Meeting.module.css";
+import styles from "./../../styling/Meeting.module.css";
 
 let ZoomMtg = null;
 

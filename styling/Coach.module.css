@@ -1,0 +1,117 @@
+.pageWrapper {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+}
+.pageWrapperInner {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    max-width: 1023px;
+    overflow: auto;
+}
+.pageLayoutWrapper {
+    display: flex;
+    height: 100%;
+}
+.pageColumn {
+    height: 100%;
+    flex: 1 1 auto;
+    overflow: auto;
+}
+.navColumnWrapper {
+    width: 210px;
+    height: 100%;
+    background-color: rgb(253, 254, 254);
+    border-right-color: rgb(231, 235, 251);
+    border-right-width: 1px;
+    border-right-style: solid;
+    flex: 0 0 auto;
+}
+.navColumn {
+    position: fixed;
+    width: 210px;
+}
+.avatarWrapper {
+    text-align: center;
+    margin: 15px 0;
+}
+.avatar {
+    border-radius: 50%;
+    border-radius: 50%;
+    height: 128px;
+}
+.navItem {
+    height: 56px;
+    display: flex;
+    padding-left: 15px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(84, 90, 119);
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-decoration: none;
+    overflow: hidden;
+    border-bottom: 1px solid rgb(246, 248, 253);
+    transition: color 0.1s ease-out 0s, padding 0.3s ease-out 0s,
+        background 0.1s ease-out 0s, height 0.3s ease-out 0s,
+        border-bottom 0.2s linear 0s, opacity 0.2s ease-out 0s;
+}
+.viewportContainer {
+    height: 80vh;
+    scroll-snap-type: y mandatory;
+    position: relative;
+    margin-left: 7vw;
+    margin-right: 7vw;
+    margin-top: 7vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.viewportContainer::-webkit-scrollbar {
+    /* width: 0.5em;
+    height: 0.5em; */
+    display: none;
+}
+
+.viewportContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+.viewport {
+    scroll-snap-align: start;
+    height: 35vh;
+    padding: 20px;
+    margin-left: 50px;
+    overflow: auto;
+}
+.progress {
+    margin-top: 100px;
+    width: 100%;
+    margin-bottom: 100px;
+    position: absolute;
+}
+.progressBarStyle {
+    height: 5px;
+    background: #e91e63;
+}
+.progressContainerStyle {
+    top: 475px;
+    position: fixed;
+    background: #f8bbd0;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    height: 5px;
+    margin-left: -255px;
+    width: 630px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg); /*Webkit*/
+
+    -moz-transform: rotate(90deg); /*FireFox*/
+
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); /*IE*/
+    z-index: 99;
+}

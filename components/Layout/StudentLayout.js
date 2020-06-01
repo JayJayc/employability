@@ -2,6 +2,7 @@ import StudentHeader from "./headers/StudentHeader";
 import withAuth from "../../src/helpers/withAuth";
 import StudentSideMenu from "../Student/StudentSideMenu";
 import styles from "../../styling/Student.module.css";
+
 const WithStudentLayout = (Page, pageName) => {
     const PageWithAuth = withAuth(() => {
         return (

@@ -1,5 +1,5 @@
 import React from "react";
-import WithLayout from "../../components/Layout/MainLayout";
+import WithCoachLayout from "../../components/Layout/CoachLayout";
 
 const Dashboard = (props) => {
     return (
@@ -61,4 +61,4 @@ const Dashboard = (props) => {
         </div>
     );
 };
-export default WithLayout(Dashboard);
+export default WithCoachLayout(Dashboard);
