@@ -1,11 +1,9 @@
 import WithMainLayout from "./../components/Layout/MainLayout";
-import React, { useContext, useState } from "react";
-import { UserContext } from "./../components/UserContext";
+import React, { useState } from "react";
 import styles from "./../styling/Home.module.css";
-import Carousel from "./../components/Home/Carousel";
+import Carousel from "./../components/Main/Carousel";
 
 const Home = (props) => {
-    const [state, setState] = useContext(UserContext);
     return (
         <React.Fragment>
             <Carousel />

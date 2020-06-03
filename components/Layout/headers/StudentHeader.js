@@ -29,14 +29,13 @@ const NavMenu = (open) => {
 };
 
 const Header = (props) => {
-    const [menuClicked, setMenuClicked] = useState(false);
-    const [loggedIn, setLoggedIn] = useState(false);
+    const { page } = props;
+    const [loggedIn, setLoggedIn] = useState(true);
     const [showModal, setShowModal] = useState(false);
     const [loginText, setLoginText] = useState("Login");
-    const [state, setState] = useContext(UserContext);
-    const { page } = props;
-    const firebase = state.firebase;
     const [topOfHome, setTopOfHome] = useState(true);
+    const [state, setState] = useContext(UserContext);
+    const firebase = state.firebase;
 
     useScrollPosition(({ prevPos, currPos }) => {
         if (currPos.y < 0) {
@@ -47,29 +46,8 @@ const Header = (props) => {
         console.log(currPos.x);
         console.log(currPos.y);
     });
-    console.log(firebase.auth().currentUser);
-    firebase.auth().onAuthStateChanged(function (user) {
-        var user = firebase.auth().currentUser;
-        var name;
 
-        if (user != null) {
-            try {
-                name = user.displayName;
-            } catch (err) {
-                // User exists but has no name
-                console.log(err);
-            }
-        }
-        if (user) {
-            setLoggedIn(true);
-            setLoginText("Hi, " + name);
-        } else {
-            setLoggedIn(false);
-            setLoginText("Login");
-        }
-    });
-    const handleLogin = (loggedIn, setLoggedIn, setShowModal) => {
-        console.log(loggedIn);
+    const handleLogOut = (loggedIn, setLoggedIn, setShowModal) => {
         if (!loggedIn) {
             setShowModal(true);
         } else {
@@ -112,7 +90,7 @@ const Header = (props) => {
                                     <a>Home</a>
                                 </Link>
                             </li>
-                            <li onClick={() => setMenuClicked(!menuClicked)}>
+                            <li>
                                 <div class={styles.dropdown}>
                                     <div class={styles.dropbtn}>
                                         Services
@@ -125,9 +103,7 @@ const Header = (props) => {
                                     </div>
                                 </div>
                             </li>
-                            <li onClick={() => setMenuClicked(!menuClicked)}>
-                                Student
-                            </li>
+                            <li>Student</li>
 
                             {loggedIn ? (
                                 <li>
@@ -136,9 +112,7 @@ const Header = (props) => {
                                     </Link>
                                 </li>
                             ) : null}
-                            <li onClick={() => setMenuClicked(!menuClicked)}>
-                                Contact Us
-                            </li>
+                            <li>Contact Us</li>
                             <div className={styles.avatarWrapper}>
                                 <img
                                     className={styles.avatar}
@@ -152,7 +126,6 @@ const Header = (props) => {
             {showModal ? (
                 <Modal setShowModal={setShowModal} firebase={firebase} />
             ) : null}
-            <NavMenu clicked={menuClicked} />
         </React.Fragment>
     );
 };
