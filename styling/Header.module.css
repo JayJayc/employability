@@ -259,3 +259,30 @@
     border-radius: 50%;
     height: 40px;
 }
+.avatarWrapper:hover .avatarDropdownContent {
+    display: block;
+}
+.avatarDropdown:hover .dropdownContent {
+    display: block;
+}
+.avatarDropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 125px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    height: auto;
+    right: 5%;
+    /* left: 10%; */
+}
+.avatarDropdownLink {
+    height: 44px;
+    padding-left: 20px;
+    text-align: left;
+    cursor: pointer;
+}
+.avatarDropdownLink p {
+    line-height: 3;
+    font-weight: bold;
+}

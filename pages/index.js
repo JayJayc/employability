@@ -1,9 +1,10 @@
 import WithMainLayout from "./../components/Layout/MainLayout";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./../styling/Home.module.css";
 import Carousel from "./../components/Main/Carousel";
 
 const Home = (props) => {
+    console.log(props);
     return (
         <React.Fragment>
             <Carousel />
@@ -193,4 +194,4 @@ const Home = (props) => {
         </React.Fragment>
     );
 };
-export default WithMainLayout(Home, "home");
+export default WithMainLayout(Home);

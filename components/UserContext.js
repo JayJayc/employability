@@ -1,25 +1,11 @@
 import React, { useState } from "react";
-var firebase = require("firebase");
 
-// Configure Firebase.
-var config = {
-    apiKey: "AIzaSyBYrfQbj4bKnbUGsnYG0xQO8-m_sIjRIWc",
-    authDomain: "pikku-275413.firebaseapp.com",
-};
-
-if (!firebase.apps.length) {
-    try {
-        firebase.initializeApp(config);
-    } catch (err) {
-        console.error("Firebase initialization error raised", err.stack);
-    }
-}
 const UserContext = React.createContext([{}, () => {}]);
 
 const UserProvider = (props) => {
-    const [state, setState] = useState({ firebase });
+    const [user, setUser] = useState({});
     return (
-        <UserContext.Provider value={[state, setState]}>
+        <UserContext.Provider value={[user, setUser]}>
             {props.children}
         </UserContext.Provider>
     );
