@@ -26,8 +26,7 @@ const Header = (props) => {
                                     <DropdownContent />
                                 </div>
                             </li>
-                            <li>Student</li>
-                            <li>Contact Us</li>
+                            <li>Notifications</li>
                             <Avatar />
                         </ul>
                     </div>

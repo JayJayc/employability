@@ -1,4 +1,4 @@
-import WithStudentLayout from "./../components/Layout/StudentLayout";
+import studentDashboardLayout from "../components/Layout/studentLayouts/StudentDashboardLayout";
 import styles from "./../styling/Student.module.css";
 import React, { useEffect, useState } from "react";
 
@@ -116,4 +116,4 @@ const Dashboard = (props) => {
         </div>
     );
 };
-export default WithStudentLayout(Dashboard);
+export default studentDashboardLayout(Dashboard);

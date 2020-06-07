@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import router from "next/router";
 import Cookie from "js-cookie";
-import StudentHeader from "./headers/StudentHeader";
-import StudentSideMenu from "../Student/StudentSideMenu";
-import styles from "../../styling/Student.module.css";
-import { auth } from "../../src/firebase";
+import StudentHeader from "../headers/StudentHeader";
+import { auth } from "../../../src/firebase";
 const tokenName = "user";
 
 const WithStudentLayout = (Page) => {
@@ -38,14 +35,7 @@ const WithStudentLayout = (Page) => {
                         }
                     `}</style>
                     <StudentHeader />
-                    <div className={styles.pageWrapper}>
-                        <div className={styles.pageWrapperInner}>
-                            <div className={styles.pageLayoutWrapper}>
-                                <StudentSideMenu />
-                                <Page />
-                            </div>
-                        </div>
-                    </div>
+                    <Page />
                 </React.Fragment>
             );
         }
