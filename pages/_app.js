@@ -12,7 +12,13 @@ const myApp = ({ Component, pageProps, currentUser, currentUserData }) => {
     return (
         // <AuthProvider>
         <UserProvider>
-            <Component {...pageProps} user={user} userData={userData} />
+            <Component
+                {...pageProps}
+                user={user}
+                userData={userData}
+                setUser={setUser}
+                setUserData={setUserData}
+            />
         </UserProvider>
         // </AuthProvider>
     );
@@ -50,10 +56,44 @@ myApp.getInitialProps = async (appContext) => {
                     .catch(function (error) {
                         console.log("error");
                     });
+                if (ctx.res) {
+                    if (result.currentUserData.type === "STUDENT") {
+                        if (!ctx.req.url.includes("student")) {
+                            console.log("push to student");
+                            ctx.res.writeHead(302, { Location: "/student" });
+                            ctx.res.end();
+                        }
+                    } else if (result.currentUserData.type === "COACH") {
+                        if (!ctx.req.url.includes("coach")) {
+                            ctx.res.writeHead(302, { Location: "/coach" });
+                            ctx.res.end();
+                        }
+                    } else if (
+                        ctx.req.url.includes("student") ||
+                        ctx.req.url.includes("coach")
+                    ) {
+                        console.log("push to /");
+
+                        ctx.res.writeHead(302, { Location: "/" });
+                        ctx.res.end();
+                    }
+                }
                 return { ...result, ...appProps };
             } catch (e) {
                 // let exceptions fail silently
                 // could be invalid token, just let client-side deal with that
+            }
+        } else {
+            console.log(ctx.req.url, " no student");
+            console.log(ctx.req.url.includes("student"));
+            if (
+                ctx.req.url.includes("student") ||
+                ctx.req.url.includes("coach")
+            ) {
+                console.log("push to /");
+
+                ctx.res.writeHead(302, { Location: "/" });
+                ctx.res.end();
             }
         }
     }
