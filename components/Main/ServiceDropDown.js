@@ -3,8 +3,8 @@ import styles from "./../../styling/Header.module.css";
 
 const DropdownContent = () => {
     return (
-        <div class={styles.dropdownContent}>
-            <div class={styles.dropdownContentColumn}>
+        <div className={styles.dropdownContent}>
+            <div className={styles.dropdownContentColumn}>
                 <Link href="/services/buddies">
                     <a>Buddies</a>
                 </Link>
@@ -24,7 +24,7 @@ const DropdownContent = () => {
                     <p>Buddies identity is disclosed for your peace of mind</p>
                 </div>
             </div>
-            <div class={styles.dropdownContentColumn}>
+            <div className={styles.dropdownContentColumn}>
                 <Link href="/services/mentors">
                     <a>Mentors</a>
                 </Link>
@@ -47,7 +47,7 @@ const DropdownContent = () => {
                     </p>
                 </div>
             </div>
-            <div class={styles.dropdownContentColumn}>
+            <div className={styles.dropdownContentColumn}>
                 <Link href="/services/advisers">
                     <a>Advisers</a>
                 </Link>

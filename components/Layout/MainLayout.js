@@ -1,9 +1,42 @@
 import MainHeader from "./headers/MainHeader";
-import withAuth from "../../src/helpers/withAuth";
+// import checkAuth from "../../src/helpers/checkAuth";
+import { auth } from "../../src/firebase";
+import Cookie from "js-cookie";
+import axios from "axios";
+import router from "next/router";
 
-const WithMainLayout = (Page, pageName) => {
-    const PageWithAuth = withAuth(() => {
-        return () => (
+const tokenName = "user";
+
+const WithMainLayout = (Page) => {
+    auth.onAuthStateChanged(async (authUser) => {
+        if (authUser) {
+            const token = await authUser.getIdToken();
+            console.log(token);
+            Cookie.set(tokenName, token, { expires: 1 });
+            axios
+                .get("/api/user", {
+                    params: {
+                        email: authUser.email,
+                    },
+                })
+                .then(function (response) {
+                    console.log(response);
+                    if (response.data.type === "STUDENT") {
+                        router.push("/student");
+                    } else {
+                        router.push("/coach");
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        } else {
+            console.log("no user");
+            Cookie.remove(tokenName);
+        }
+    });
+    const pageWithLayout = (props) => {
+        return (
             <div>
                 <style jsx global>{`
                     body {
@@ -13,12 +46,15 @@ const WithMainLayout = (Page, pageName) => {
                     }
                 `}</style>
 
-                <MainHeader page={pageName} />
-                <Page />
+                <MainHeader />
+                <Page {...props} />
             </div>
         );
-    });
-    return () => <PageWithAuth />;
+    };
+    if (Page.getInitialProps) {
+        pageWithLayout.getInitialProps = Page.getInitialProps;
+    }
+    return pageWithLayout;
 };
 
 export default WithMainLayout;

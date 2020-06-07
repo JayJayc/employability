@@ -11,7 +11,7 @@ class MyDocument extends Document {
             <Html>
                 <Head>
                     {/* import local css for #zmmtg-root */}
-                    <link
+                    {/* <link
                         type="text/css"
                         rel="stylesheet"
                         href="node_modules/@zoomus/websdk/dist/css/bootstrap.css"
@@ -20,7 +20,7 @@ class MyDocument extends Document {
                         type="text/css"
                         rel="stylesheet"
                         href="node_modules/@zoomus/websdk/dist/css/react-select.css"
-                    />
+                    /> */}
                 </Head>
                 <body>
                     <Main />

@@ -1,9 +1,17 @@
 import styles from "./../../styling/LoginModal.module.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../UserContext";
+import { auth } from "../../src/firebase";
+import router from "next/router";
+import axios from "axios";
+import cookie from "js-cookie";
+const tokenName = "userToken";
 
 const LoginModal = (props) => {
     const [email, setEmail] = useState(false);
     const [password, setPassword] = useState(false);
+    const [user, setUser] = useContext(UserContext);
+
     const handleClose = () => {
         props.setShowModal(false);
     };
@@ -15,11 +23,27 @@ const LoginModal = (props) => {
         }
     };
     const handleSubmit = () => {
-        props.firebase
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-            .then((user) => {
-                props.setShowModal(false);
+        auth.signInWithEmailAndPassword(email, password)
+            .then(async (authUser) => {
+                // TODO
+                // axios
+                //     .get("/api/user", {
+                //         params: {
+                //             email: authUser.user.email,
+                //         },
+                //     })
+                //     .then(function (response) {
+                //         setUser(response.data);
+                //         console.log(response);
+                //         if (response.data.type === "STUDENT") {
+                //             router.push("/student");
+                //         } else {
+                //             router.push("/coach");
+                //         }
+                //     })
+                //     .catch(function (error) {
+                //         console.log(error);
+                //     });
             })
             .catch(function (error) {
                 alert(error);

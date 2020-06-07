@@ -5,14 +5,13 @@ import { useState, useContext } from "react";
 import { UserContext } from "../../UserContext";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import DropdownContent from "./../../Main/ServiceDropDown";
+import { auth } from "../../../src/firebase";
 
 const Header = (props) => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [loginText, setLoginText] = useState("Login");
-    const [state, setState] = useContext(UserContext);
     const { page } = props;
-    const firebase = state.firebase;
     const [topOfHome, setTopOfHome] = useState(true);
 
     useScrollPosition(({ prevPos, currPos }) => {
@@ -22,35 +21,21 @@ const Header = (props) => {
             setTopOfHome(true);
         }
     });
-    console.log(firebase.auth().currentUser);
-    firebase.auth().onAuthStateChanged(function (user) {
-        var user = firebase.auth().currentUser;
-        var name;
+    // TODO
+    // if (user) {
+    //     setLoggedIn(true);
+    //     setLoginText("Hi, " + name);
+    // } else {
+    //     setLoggedIn(false);
+    //     setLoginText("Login");
+    // }
 
-        if (user != null) {
-            try {
-                name = user.displayName;
-            } catch (err) {
-                // User exists but has no name
-                console.log(err);
-            }
-        }
-        if (user) {
-            setLoggedIn(true);
-            setLoginText("Hi, " + name);
-        } else {
-            setLoggedIn(false);
-            setLoginText("Login");
-        }
-    });
     const handleLogin = (loggedIn, setLoggedIn, setShowModal) => {
         console.log(loggedIn);
         if (!loggedIn) {
             setShowModal(true);
         } else {
-            firebase
-                .auth()
-                .signOut()
+            auth.signOut()
                 .then(function () {
                     // Sign-out successful.
                     setLoggedIn(false);
@@ -85,10 +70,9 @@ const Header = (props) => {
                                 </Link>
                             </li>
                             <li>
-                                <div class={styles.dropdown}>
-                                    <div class={styles.dropbtn}>
+                                <div className={styles.dropdown}>
+                                    <div className={styles.dropbtn}>
                                         Services
-                                        <i class="fa fa-caret-down"></i>
                                     </div>
                                     <DropdownContent />
                                 </div>
@@ -114,16 +98,7 @@ const Header = (props) => {
                                         Sign up
                                     </span>
                                 )}
-                                {loggedIn ? (
-                                    <Link href="/dashboard">
-                                        <div className={styles.avatarWrapper}>
-                                            <img
-                                                className={styles.avatar}
-                                                src="/avatar.png"
-                                            />
-                                        </div>
-                                    </Link>
-                                ) : (
+                                {loggedIn ? null : (
                                     <span className={styles.bannerLink}>
                                         Become A Coach
                                     </span>
@@ -133,9 +108,7 @@ const Header = (props) => {
                     </div>
                 </header>
             </div>
-            {showModal ? (
-                <Modal setShowModal={setShowModal} firebase={firebase} />
-            ) : null}
+            {showModal ? <Modal setShowModal={setShowModal} /> : null}
         </React.Fragment>
     );
 };

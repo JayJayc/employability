@@ -139,12 +139,11 @@ const Header = (props) => {
                                 </Link>
                             </li>
                             <li onClick={() => setMenuClicked(!menuClicked)}>
-                                <div class={styles.dropdown}>
-                                    <div class={styles.dropbtn}>
+                                <div className={styles.dropdown}>
+                                    <div className={styles.dropbtn}>
                                         Services
-                                        <i class="fa fa-caret-down"></i>
                                     </div>
-                                    <div class={styles.dropdownContent}>
+                                    <div className={styles.dropdownContent}>
                                         <a href="#">Link 1</a>
                                         <a href="#">Link 2</a>
                                         <a href="#">Link 3</a>

@@ -29,3 +29,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env
+
+Pikku-8aaa2606ea81.json
+
