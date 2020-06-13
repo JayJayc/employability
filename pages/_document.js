@@ -21,6 +21,14 @@ class MyDocument extends Document {
                         rel="stylesheet"
                         href="node_modules/@zoomus/websdk/dist/css/react-select.css"
                     /> */}
+                    <link
+                        rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.css"
+                    />
+                    <link
+                        rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css"
+                    />
                 </Head>
                 <body>
                     <Main />

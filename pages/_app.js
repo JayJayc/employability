@@ -7,6 +7,7 @@ import nextCookies from "next-cookies";
 import { useState } from "react";
 
 const myApp = ({ Component, pageProps, currentUser, currentUserData }) => {
+    console.log(currentUser);
     const [user, setUser] = useState(currentUser);
     const [userData, setUserData] = useState(currentUserData);
     return (

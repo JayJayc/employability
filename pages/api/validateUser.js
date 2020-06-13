@@ -15,6 +15,7 @@ const validate = async (token) => {
     const data = (
         await firestore.doc(`/users/${decodedToken.uid}`).get()
     ).data();
+    console.log(data, "here");
     const user = await auth.getUser(decodedToken.uid);
     const result = {
         currentUser: {

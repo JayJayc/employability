@@ -26,3 +26,63 @@
 .slideTransition {
     transition-duration: 0ms;
 }
+
+.serviceCard {
+    width: 100%;
+    -webkit-box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.8);
+    margin: 0 15px;
+    border: black solid 1px;
+}
+.serviceCardHead {
+    background-blend-mode: overlay;
+    background: #4897da;
+    background-image: linear-gradient(
+        223.9deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        #6248da 100%
+    );
+}
+.serviceCardBody {
+    background-color: #fff;
+    margin: 0;
+    padding: 29px 24px 24px;
+    list-style: none;
+}
+.serviceCardTitle {
+    padding: 24px 24px 76px;
+}
+.serviceCardBanner {
+    padding: 17px 24px;
+    background-color: rgba(255, 255, 255, 0.25);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.serviceList {
+    background-color: #fff;
+    margin: 0;
+    padding: 29px 24px 24px;
+    list-style: none;
+}
+.serviceListItem {
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    padding: 5px 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}

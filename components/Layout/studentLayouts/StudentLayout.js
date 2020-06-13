@@ -35,7 +35,7 @@ const WithStudentLayout = (Page) => {
                         }
                     `}</style>
                     <StudentHeader />
-                    <Page />
+                    <Page {...props} />
                 </React.Fragment>
             );
         }

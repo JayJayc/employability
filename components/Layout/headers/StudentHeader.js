@@ -19,12 +19,14 @@ const Header = (props) => {
                                 </Link>
                             </li>
                             <li>
-                                <div className={styles.dropdown}>
-                                    <div className={styles.dropbtn}>
-                                        Services
-                                    </div>
-                                    <DropdownContent />
-                                </div>
+                                <Link href="/student/services">
+                                    <a>Services</a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/student/requests">
+                                    <a>My Requests</a>
+                                </Link>
                             </li>
                             <li>Notifications</li>
                             <Avatar />
