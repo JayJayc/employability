@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Cookie from "js-cookie";
 import StudentHeader from "../headers/StudentHeader";
 import { auth } from "../../../src/firebase";
+import axios from "axios";
 
 const tokenName = "user";
 
@@ -15,22 +16,24 @@ const WithStudentLayout = (Page) => {
                 const token = await authUser.getIdToken();
                 console.log(token);
                 Cookie.set(tokenName, token, { expires: 1 });
-                const headers = {
-                    "Content-Type": "application/json",
-                    Authorization: JSON.stringify({ token: token }),
-                };
-                await axios
-                    .get("/api/validateUser", {
-                        headers,
-                        baseURL: "http://localhost:3000",
-                    })
-                    .then(function (response) {
-                        props.setUser(response.data.currentUser);
-                        props.setUserData(response.data.currentUserData);
-                    })
-                    .catch(function (error) {
-                        console.log("error");
-                    });
+                if (typeof props.user === "undefined") {
+                    const headers = {
+                        "Content-Type": "application/json",
+                        Authorization: JSON.stringify({ token: token }),
+                    };
+                    await axios
+                        .get("/api/validateUser", {
+                            headers,
+                            baseURL: "http://localhost:3000",
+                        })
+                        .then(function (response) {
+                            props.setUser(response.data.currentUser);
+                            props.setUserData(response.data.currentUserData);
+                        })
+                        .catch(function (error) {
+                            console.log("error");
+                        });
+                }
                 setStatus("SIGNED_IN");
             } else {
                 console.log("remove token");

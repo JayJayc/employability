@@ -1,20 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import WithStudentLayout from "./../../components/Layout/studentLayouts/StudentLayout";
 import axios from "axios";
 const Dashboard = (props) => {
-    useEffect(async () => {
-        console.log(props);
-        const result = await axios
-            .get("/api/requests", {
-                baseURL: "http://localhost:3000",
-                params: {
-                    user: props.user.uid,
-                },
-            })
-            .then(function (response) {})
-            .catch(function (error) {
-                console.log("error");
-            });
+    const [requests, setRequests] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            await axios
+                .get("/api/requests", {
+                    baseURL: "http://localhost:3000",
+                    params: {
+                        user: props.user.uid,
+                    },
+                })
+                .then(function (response) {
+                    console.log(response.data);
+                    setRequests(response.data.requests);
+                })
+                .catch(function (error) {
+                    console.log("error");
+                });
+        };
+        fetchData();
     }, []);
     return (
         <div>
@@ -29,6 +35,10 @@ const Dashboard = (props) => {
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
+            {/* TODO create request cards */}
+            {requests.map((request) => {
+                return <div>{request.status}</div>;
+            })}
         </div>
     );
 };
