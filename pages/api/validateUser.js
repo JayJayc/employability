@@ -9,7 +9,14 @@ const auth = app.auth();
 const firestore = app.firestore();
 
 const validate = async (token) => {
-    const decodedToken = await auth.verifyIdToken(token, true);
+    let decodedToken;
+    try {
+        decodedToken = await auth.verifyIdToken(token, true);
+    } catch (err) {
+        return res.status(401).send({
+            message: err,
+        });
+    }
     console.log("Valid token.");
     // get user data from your DB store
     const data = (
