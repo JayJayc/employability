@@ -20,31 +20,19 @@
     flex: 1 1 auto;
     overflow: auto;
 }
-.navColumnWrapper {
-    width: 210px;
-    height: 100%;
+.navRowWrapper {
+    position: absolute;
+    width: 100%;
+    height: 50px;
     background-color: rgb(253, 254, 254);
     border-right-color: rgb(231, 235, 251);
     border-right-width: 1px;
     border-right-style: solid;
     flex: 0 0 auto;
 }
-.navColumn {
-    position: fixed;
-    width: 210px;
-}
-.avatarWrapper {
-    text-align: center;
-    margin: 15px 0;
-}
-.avatar {
-    border-radius: 50%;
-    border-radius: 50%;
-    height: 128px;
-}
 .navItem {
     height: 56px;
-    display: flex;
+    display: inline-flex;
     padding-left: 15px;
     background-color: rgb(255, 255, 255);
     color: rgb(84, 90, 119);
@@ -114,4 +102,73 @@
 
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); /*IE*/
     z-index: 99;
+}
+
+.indexedStep {
+    color: white;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    background-color: rgba(211, 211, 211, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.indexedStep.skipped {
+    background-color: #ee7871;
+}
+.indexedStep.passed {
+    background-color: #a8ee71;
+}
+
+.RSPBprogressBar {
+    margin-top: 80px;
+    height: 20px;
+    line-height: 1;
+    border-radius: 10px;
+    position: relative;
+    background-color: rgba(lightgrey 0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 0;
+}
+.RSPBstep {
+    display: inline-flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    z-index: 0;
+    transform: translateX(-50%);
+    transition-property: all;
+    transition-timing-function: ease;
+}
+
+.RSPBprogressBarText {
+    color: white;
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.RSPBprogression {
+    position: absolute;
+    transition: width 0.3s ease;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background: rgba(#0074d9, 0.8);
+    z-index: -1;
+}
+.journeyBarWrapper {
+    width: 75vw;
+    min-width: 600px;
+    margin: auto;
+}
+.stepWrapper {
+    text-align: end;
 }

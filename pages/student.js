@@ -1,6 +1,7 @@
 import studentDashboardLayout from "../components/Layout/studentLayouts/StudentDashboardLayout";
 import styles from "./../styling/Student.module.css";
 import React, { useEffect, useState } from "react";
+import JourneyBar from "./../components/Student/JourneyBar";
 
 const Dashboard = (props) => {
     const [scrolled, setScrolled] = useState("0px");
@@ -25,12 +26,14 @@ const Dashboard = (props) => {
     };
     return (
         <div className={styles.pageColumn}>
-            <div className={styles.progressContainerStyle}>
+            {/* <div className={styles.progressContainerStyle}>
                 <div
                     className={styles.progressBarStyle}
                     style={progressBarScrolled}
                 />
-            </div>
+            </div> */}
+            ]
+            <JourneyBar />
             <div id="viewportContainer" className={styles.viewportContainer}>
                 <div className={styles.viewport}>
                     <h1>Discovery</h1>

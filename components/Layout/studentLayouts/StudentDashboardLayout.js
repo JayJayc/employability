@@ -7,9 +7,9 @@ const studentDashboardLayout = (Page) => {
         return (
             <React.Fragment>
                 <div className={styles.pageWrapper}>
+                    <StudentSideMenu />
                     <div className={styles.pageWrapperInner}>
                         <div className={styles.pageLayoutWrapper}>
-                            <StudentSideMenu />
                             <Page />
                         </div>
                     </div>
