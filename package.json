@@ -11,7 +11,7 @@
         "@google-cloud/firestore": "^3.8.4",
         "@n8tb1t/use-scroll-position": "^1.0.43",
         "@zoomus/websdk": "^1.7.8",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "dotenv": "^8.2.0",
         "firebase": "^7.14.5",
         "firebase-admin": "^8.12.1",
